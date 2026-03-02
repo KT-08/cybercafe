@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Bills</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box">
+        <h1>Generate Bill</h1>
+        <form method="post" action="generateBills.php">
+            <label for="userName">Enter User Name</label>
+            <input type="text" name="userName" id="userName" placeholder="User Name">
+
+            <label for="date">Enter Date</label>
+            <input type="date" name="bill_date" id="bill_date">
+
+            <label for="totalTime">Enter Total time</label>
+            <input type="time" name="totalTime" id="totalTime">
+
+            <label for="bill_amount">Enter Bill Amount</label>
+            <input type="number" name="bill_amount" id="bill_amount">
+
+            <input type="submit" value="submit">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css?v=5">
+
+    <script>
+        function validate()
+        {
+            var entered_email = document.getElementById("email").value;
+            var pattern_email = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+)\.([a-z]+)(\.[a-z]+)?$/;
+            var entered_phno = document.getElementById("phno").value;
+            var pattern_phno = /^[789]{1}[0-9]{9}$/;
+            var entered_username = document.getElementById("username").value;
+            var pattern_username = /[A-Z]/;                               
+            var entered_password = document.getElementById("password").value;
+
+            var first_name = document.getElementById("fname").value;
+            var last_name = document.getElementById("lname").value;
+            var d_o_b = document.getElementById("dob").value;
+            var loc = document.getElementById("location").value;
+
+            var user_photo = document.getElementbyId("photo").value;
+
+            var genders = document.getElementsByName("gender"); 
+            var selected_gender = ""; 
+
+            var accounts = document.getElementsByName("account"); 
+            var selected_account = ""; 
+            
+            for(var i=0;i<genders.length;i++) 
+            { 
+                if(genders[i].checked == true) 
+                { selected_gender = genders[i].value; } 
+            } 
+            
+            for(var i=0;i<accounts.length;i++) 
+            { 
+                if(accounts[i].checked == true) 
+                { selected_account = selected_account +", "+ accounts[i].value; } 
+            }
+
+            if( first_name == "")
+            {
+                alert("Please Enter your First name.");
+                return false;
+            }
+            else if(last_name == "")
+            {
+                alert("Please Enter your Last name.");
+                return false;
+            }
+            else if(d_o_b == "")
+            {
+                alert("Please Enter your Date Of Birth .");
+                return false;
+            }
+            else if(loc == "")
+            {
+                alert("Please Select your Location .");
+                return false;
+            }
+            else if(user_photo == "")
+            {
+                alert("Upload Your Photo.");
+                return false;
+            }
+
+            else if(selected_gender == "") 
+            { 
+                alert("Please select Your Gender."); 
+                return false; 
+            } 
+            else if(selected_account == "") 
+            { 
+                alert("Please select Account Type."); 
+                return false; 
+            }
+
+            //email,phonenumber,username,password validation
+            else if(entered_username == "")                              //username
+            {
+                alert("Please Enter Username.");
+                return false;
+            }
+            else if(pattern_username.test(entered_username) == false)
+            {
+                alert("Username Should Contain Atleast one Uppercase letter.");
+                return false;
+            }
+            else if(entered_email == "")                                  //email
+            {
+                alert("Please Enter Email.");
+                return false;
+            }
+            else if(pattern_email.test(entered_email) == false)
+            {
+                alert("Enter Valid Email.");
+                return false;
+            }
+            else if(entered_phno == "")
+            {
+                alert("Please Enter Phone Number.");
+                return false;
+            }
+            else if(pattern_phno.test(entered_phno) == false)
+            {
+                alert("Enter valid Phone Number");
+                return false;
+            }
+            else if(entered_password.trim().length < 6 || entered_password.trim().length > 8)
+            {
+                alert("Password size must be 6 - 8 characters.");
+                return false;
+            }
+            else if(entered_password.search(/[A-Z]/) == -1)
+            {
+                alert("Password must containt atleast one uppercase alphabet.");
+                return false;
+            }
+            else if(entered_password.search(/[0-9]/) == -1)
+            {
+                alert("Password must containe atleast one number.");
+                return false;
+            }
+            else if(entered_password.search(/[\@\#\$\%\&\;\:\.\,]/) == -1)
+            {
+                alert("Password must contain atleast one special character @ # $ & % ; . ,");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+
+        }
+    </script>
+
+</head>
+<body>
+    <div class="box">
+        <h1>Sign Up</h1>
+        <form onsubmit="return validate()" method="post" action="signup.php" enctype="multipart/form-data">
+                <label for="fname">Enter Your First Name</label> <br>
+                <input type="text" id="fname" name="fname" placeholder="ex. Kanika">
+
+                <label for="lname">Enter Your Last Name</label> <br>
+                <input type="text" id="lname" name="lname" placeholder="ex. Tari">
+
+                <label>Select Gender</label> 
+                <label><input type="radio" name="gender" id="male" value="male">Male</label> 
+                <label><input type="radio" name="gender" id="female" value="female">Female</label> 
+                <label><input type="radio" name="gender" id="others" value="others">Others</label>
+
+                <label for="email">Enter Your Email Id</label> <br>
+                <input type="text" id="email" name="email" placeholder="kanika@gmail.com">
+
+                <label for="phno">Enter Your Phone Number</label> <br>
+                <input type="text" id="phno" name="phno" placeholder="10 digits">
+
+                <label for="dob">Enter Your DOB</label> <br>
+                <input type="date" id="dob" name="dob">
+
+                <label for="location">Select Your Location</label> <br>
+                <select id="location" name="location">
+                    <option></option>
+                    <option value="Goa">Goa</option>
+                    <option value="karnataka">karnataka</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Gujarat">Gujarat</option>
+                </select>
+
+                <label>What will you use your account mostly for?</label> 
+                <div style="display:inline-flex"> 
+                    <label><input type="checkbox" id="personal" name="account" value="personal">Personal use</label> 
+                    <label><input type="checkbox" id="educational" name="account" value="educational">Educational</label> 
+                    <label><input type="checkbox" id="business" name="account" value="business">Business</label> 
+                    <label><input type="checkbox" id="other" name="account" value="other">Others</label> 
+                </div>
+
+                <label for="photo">Upload Your Photo</label> <br>
+                <input type="file" id="photo" name="photo">
+
+                <label for="username">Enter Your User Name</label><br>
+                <input type="text" id="username" name="username" placeholder="Username">
+
+                <label for="password">Enter Your Password</label> <br>
+                <input type="password" id="password" name="password" placeholder="Password">
+
+            <input type="submit" value="Submit Form">
+            <input type="reset" value="Reset Form">
+
+        </form>
+    </div>
+</body>
+</html>

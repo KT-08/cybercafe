@@ -1,0 +1,127 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #2a0845, #6441a5);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  width: 400px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 25px;
+  color: #fff;
+  border-bottom: 2px solid #b983ff;
+  padding-bottom: 10px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  margin: 8px 0 15px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #19002d;
+  font-size: 15px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #ddd;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+  width: 100%;
+  background: linear-gradient(90deg, #b983ff, #8a3ffc);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  transform: translateY(-2px);
+}
+
+label {
+  display: flex;
+  text-align: left;
+  margin-top: 20px;
+  color: #f3e8ff;
+  font-weight: 500;
+}
+
+label:has(input[type="checkbox"]),
+label:has(input[type="radio"]){
+  display: inline-block;
+}
+
+a {
+  color: #b983ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+p, h3 {
+  margin-top: 15px;
+  color: #e6d6ff;
+  font-size: 0.95rem;
+}
+
+.dashboard button {
+  margin: 10px;
+  display: inline-block;
+  width: 80%;
+  height: 15%;
+  font-size: larger;
+}
+
+input[type="file"] {
+  background: none;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  cursor: pointer;
+}
+
+input[type="color"] {
+  height: 40px;
+  border: none;
+  padding: 3px;
+}
+
+.box.dashboard{
+  width: 90vh;
+  height: 85vh;
+}

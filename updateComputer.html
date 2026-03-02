@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Computer</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validate(){
+            var column = document.getElementById("update_column").value;
+            var data = document.getElementById("update_value").value;
+
+            var date_pattern = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/;
+
+            if(column == "warranty_expiry" || column == "maintenance_date")
+            {
+                if(date_pattern.test(data) == false)
+                {
+                    alert("Please Enter date in YYYY-MM-DD Format (with Hyphen)");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h1>Update Computer</h1>
+
+        <form onsubmit="return validate()" action="updateComputer.php" method="post">
+            <label for="comID">Enter Computer ID</label>
+            <input type="number" name="comID" id="comID" placeholder="comID">
+
+            <label for="update_column">Select What you want To Update</label>
+                <select name="update_column" id="update_column">
+                    <option>Select column</option>
+                    <option value="com_status">Computer status</option>
+                    <option value="network">Network Connectivity</option>
+                    <option value="location">Location</option>
+                    <option value="warranty_expiry">Warranty Expiry Date</option>
+                    <option value="maintenance_date">Last maintenance Date</option>
+                    <option value="password">Password</option>
+                    <option value="additional_notes">Notes</option>
+                </select>
+
+            <label for="update_value">Enter New value</label>
+                <input type="text" name="update_value" id="update_value">
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</body>
+</html>
