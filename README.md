@@ -50,8 +50,8 @@ Before running this project, ensure you have:
 - A modern web browser (Chrome, Firefox, etc.)
 
   <h4>note</h4>
-  save this project folder in C:\xampp\htdocs\cybercafe
-  create all the tables i.e admin,user,computer,bill in phpmyadminaccording to word document
+  save this project folder in C:\xampp\htdocs\cybercafe <br>
+  create all the tables i.e admin,user,computer,bill in phpmyadmin according to word document
 
 ---
 
